@@ -1,0 +1,44 @@
+# Central configuration for the Student Early-Warning System.
+# Change values here instead of editing code.
+
+paths:
+  raw_data_dir: data/raw            # the 7 OULAD CSV files go here
+  sample_data_dir: data/sample      # synthetic data for dry runs and tests
+  processed_dir: data/processed     # parquet cache, SQLite database
+  models_dir: models
+  figures_dir: reports/figures
+  reports_dir: reports
+  database: data/processed/early_warning.db
+
+problem:
+  cutoff_day: 60                    # predict using only data from before this course day
+  # final_result values that count as "at risk" (the positive class)
+  positive_results: [Fail, Withdrawn]
+
+split:
+  # Temporal split: learn from older course runs, check on newer ones.
+  train_presentations: [2013B, 2013J]
+  validation_presentations: [2014B]   # used to pick the model and the threshold
+  test_presentations: [2014J]         # touched once, for the final honest score
+
+features:
+  # Protected attributes are excluded from the model by default (fairness).
+  # They are still used to CHECK fairness after training.
+  sensitive_columns: [gender, disability, age_band]
+  use_sensitive_columns: false
+
+model:
+  random_state: 42
+  target_recall: 0.80   # pick the threshold that catches at least 80% of at-risk students
+  candidates: [logistic_regression, random_forest, hist_gradient_boosting]
+
+explain:
+  method: auto          # auto = SHAP if installed, otherwise baseline-replacement
+  top_reasons: 3
+
+llm:
+  enabled: true
+  base_url: http://localhost:11434
+  model: llama3.2:3b
+  temperature: 0.3
+  timeout_seconds: 120
