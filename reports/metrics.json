@@ -1,0 +1,197 @@
+{
+  "data_dir": "/home/claude/sew/data/raw",
+  "synthetic_data": false,
+  "cutoff_day": 60,
+  "selected_model": "hist_gradient_boosting",
+  "validation": {
+    "majority_baseline": {
+      "n_students": 6193,
+      "at_risk_rate": 0.4578,
+      "threshold": 0.5,
+      "roc_auc": 0.5,
+      "pr_auc": 0.4578,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "flagged_rate": 0.0,
+      "confusion_matrix": {
+        "tn": 3358,
+        "fp": 0,
+        "fn": 2835,
+        "tp": 0
+      }
+    },
+    "logistic_regression": {
+      "n_students": 6193,
+      "at_risk_rate": 0.4578,
+      "threshold": 0.4108,
+      "roc_auc": 0.8287,
+      "pr_auc": 0.8261,
+      "precision": 0.6655,
+      "recall": 0.8,
+      "f1": 0.7266,
+      "flagged_rate": 0.5503,
+      "confusion_matrix": {
+        "tn": 2218,
+        "fp": 1140,
+        "fn": 567,
+        "tp": 2268
+      }
+    },
+    "random_forest": {
+      "n_students": 6193,
+      "at_risk_rate": 0.4578,
+      "threshold": 0.3839,
+      "roc_auc": 0.8239,
+      "pr_auc": 0.8257,
+      "precision": 0.662,
+      "recall": 0.8,
+      "f1": 0.7245,
+      "flagged_rate": 0.5532,
+      "confusion_matrix": {
+        "tn": 2200,
+        "fp": 1158,
+        "fn": 567,
+        "tp": 2268
+      }
+    },
+    "hist_gradient_boosting": {
+      "n_students": 6193,
+      "at_risk_rate": 0.4578,
+      "threshold": 0.3845,
+      "roc_auc": 0.8276,
+      "pr_auc": 0.8285,
+      "precision": 0.6653,
+      "recall": 0.8,
+      "f1": 0.7265,
+      "flagged_rate": 0.5505,
+      "confusion_matrix": {
+        "tn": 2217,
+        "fp": 1141,
+        "fn": 567,
+        "tp": 2268
+      }
+    }
+  },
+  "test": {
+    "n_students": 8837,
+    "at_risk_rate": 0.3825,
+    "threshold": 0.3845,
+    "roc_auc": 0.8037,
+    "pr_auc": 0.7526,
+    "precision": 0.5739,
+    "recall": 0.7834,
+    "f1": 0.6625,
+    "flagged_rate": 0.5221,
+    "confusion_matrix": {
+      "tn": 3491,
+      "fp": 1966,
+      "fn": 732,
+      "tp": 2648
+    }
+  },
+  "test_majority_baseline": {
+    "n_students": 8837,
+    "at_risk_rate": 0.3825,
+    "threshold": 0.5,
+    "roc_auc": 0.5,
+    "pr_auc": 0.3825,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "flagged_rate": 0.0,
+    "confusion_matrix": {
+      "tn": 5457,
+      "fp": 0,
+      "fn": 3380,
+      "tp": 0
+    }
+  },
+  "fairness_test": [
+    {
+      "group": "gender=F",
+      "students": 3735,
+      "at_risk_rate": 0.3617,
+      "flagged_rate": 0.5633,
+      "recall": 0.7876
+    },
+    {
+      "group": "gender=M",
+      "students": 5102,
+      "at_risk_rate": 0.3977,
+      "flagged_rate": 0.492,
+      "recall": 0.7807
+    },
+    {
+      "group": "disability=N",
+      "students": 8031,
+      "at_risk_rate": 0.3708,
+      "flagged_rate": 0.5114,
+      "recall": 0.7801
+    },
+    {
+      "group": "disability=Y",
+      "students": 806,
+      "at_risk_rate": 0.4988,
+      "flagged_rate": 0.629,
+      "recall": 0.8085
+    },
+    {
+      "group": "age_band=0-35",
+      "students": 6041,
+      "at_risk_rate": 0.3963,
+      "flagged_rate": 0.5451,
+      "recall": 0.8033
+    },
+    {
+      "group": "age_band=35-55",
+      "students": 2715,
+      "at_risk_rate": 0.354,
+      "flagged_rate": 0.4751,
+      "recall": 0.7367
+    },
+    {
+      "group": "age_band=55<=",
+      "students": 81,
+      "at_risk_rate": 0.3086,
+      "flagged_rate": 0.3827,
+      "recall": 0.68
+    }
+  ],
+  "permutation_importance": {
+    "weighted_score": 0.1745,
+    "days_since_last_activity": 0.0244,
+    "mean_score": 0.012,
+    "active_days_vs_cohort": 0.0057,
+    "min_score": 0.0049,
+    "highest_education": 0.0047,
+    "avg_days_late": 0.0047,
+    "code_module": 0.0038,
+    "clicks_last_14d": 0.0034,
+    "imd_band": 0.0024,
+    "clicks_prev_14d": 0.0017,
+    "clicks_vs_cohort": 0.0012,
+    "content_clicks": 0.0005,
+    "num_of_prev_attempts": 0.0005,
+    "active_days": 0.0003,
+    "total_clicks": 0.0003,
+    "quiz_clicks": 0.0003,
+    "forum_clicks": 0.0002,
+    "date_registration": 0.0002,
+    "distinct_resources": 0.0002,
+    "click_trend": 0.0,
+    "assessments_missed": 0.0,
+    "course_length": 0.0,
+    "assessments_due": -0.0,
+    "late_submissions": -0.0,
+    "region": -0.0001,
+    "studied_credits": -0.0001,
+    "assessments_submitted": -0.0002,
+    "submission_rate": -0.0002
+  },
+  "split_sizes": {
+    "train": 11373,
+    "validation": 6193,
+    "test": 8837
+  }
+}

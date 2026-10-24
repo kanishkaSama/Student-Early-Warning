@@ -10,3 +10,7 @@ data/processed/*
 data/sample/*
 models/*
 !**/.gitkeep
+
+# Ship the trained model and demo predictions so the hosted dashboard works
+!models/model.joblib
+!data/processed/early_warning.db
