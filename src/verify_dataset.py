@@ -38,7 +38,7 @@ EXPECTED_ROWS = {
     "studentVle": 10_655_280,
 }
 MAX_UNCOMPRESSED_BYTES = 1_500_000_000  # guards against "zip bombs"
-DOCUMENTATION_SUFFIXES = {".txt", ".md", ".pdf", ".rtf"}  # skipped, never extracted
+DOCUMENTATION_SUFFIXES = {".txt", ".md", ".pdf", ".rtf", ".names"}  # skipped, never extracted
 
 
 def sha256_of(path: Path) -> str:
